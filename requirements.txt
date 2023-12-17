@@ -1,0 +1,2 @@
+django
+design-django-theme
