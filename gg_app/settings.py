@@ -2,23 +2,22 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SETTINGS_PATH = os.path.normpath(os.path.dirname(__file__))
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-STATIC_URL = '/static/'
-STATIC_ROOT= os.path.join(BASE_DIR,'gg_app/asset')
-STATICFILES_DIRS = ( os.path.join(BASE_DIR,'gg_app/templates/static'),)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-cbh93)-^k0np#pp&b^xs2ybqc-y)8or6boplnojbexniq^i^jb'
+SECRET_KEY = 'django-insecure-$837yc44r*#z$-+!e%7j4g*h$o+03irs!34h(t!kfgojz9_kr6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = []
+
+
+# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -45,7 +44,7 @@ ROOT_URLCONF = 'gg_app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(SETTINGS_PATH, '/templates/')],
+        'DIRS': ['gg_app/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -58,15 +57,18 @@ TEMPLATES = [
     },
 ]
 
-
 WSGI_APPLICATION = 'gg_app.wsgi.application'
-
-# date format for datepicker.js
-JS_DEFAULT_DATE_FORMAT = "dd/MM/yyyy"
 
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Password validation
@@ -98,5 +100,11 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'gg_app/static')]
+VENV_PATH = os.path.dirname(BASE_DIR)
+STATIC_ROOT = os.path.join(VENV_PATH, 'static_root')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
