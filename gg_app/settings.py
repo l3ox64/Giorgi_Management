@@ -26,6 +26,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap_italia_template',
+    'mssql',
+    'pyodbc',
 ]
 
 MIDDLEWARE = [
@@ -63,11 +65,15 @@ WSGI_APPLICATION = 'gg_app.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'default': {
+            'ENGINE': 'mssql',
+            'NAME': 'DJANGO_MSSQL',
+            'USER': 'user-test',
+            'PASSWORD': 'justtest12',
+            'HOST': '127.0.0.1',
+            'PORT': '1433',
+        },
     }
-}
 
 
 # Password validation
