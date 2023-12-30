@@ -12,7 +12,7 @@ Make sure you have the following installed on your machine:
 
 - [Python](https://www.python.org/downloads) (version 3.12.0)
 - [SQL Server Express](https://www.microsoft.com/it-it/download/details.aspx?id=101064) (version 2019)
-
+- [SQL Server Management Studio]([https://www.microsoft.com/it-it/download/details.aspx?id=101064](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)) (version 16)
 ### Installation
 
 1. Clone the repository:
@@ -49,5 +49,8 @@ Make sure you have the following installed on your machine:
 
 9. Visit http://localhost:8000/ in your web browser to view your app.
 
+### Integration with MSSQL
+
+   - [Connect Django to Microsoft SQL Server (MSSQL) Database](https://igeorgiev.eu/python/django/python-django-connect-sql-server-mssql-database/)
 
 
