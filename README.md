@@ -35,11 +35,19 @@ Make sure you have the following installed on your machine:
    ```bash
    pipenv install -r requirements.txt
 
-6. Start the Django development server with:
+6. Creates all the necessary tables:
+   ```bash
+   python manage.py migrate
+
+7. Create user for test:
+   ```bash
+    python manage.py createsuperuser
+
+8. Start the Django development server with:
    ```bash
    python manage.py runserver
 
-7. Visit http://localhost:8000/ in your web browser to view your app.
+9. Visit http://localhost:8000/ in your web browser to view your app.
 
 
 
