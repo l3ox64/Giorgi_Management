@@ -1,16 +1,17 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login, logout 
-from .forms import UserCreationForm, LoginForm
+from django.contrib import messages
+from django.contrib.auth import login, authenticate, logout
+from .forms import LoginForm, RegisterForm
 
 # signup page
 def user_signup(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('login')
     else:
-        form = UserCreationForm()
+        form = RegisterForm()
     return render(request, 'registration/signup.html', {'form': form})
 
 # login page
